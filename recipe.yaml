@@ -1,0 +1,26 @@
+# Starting recipe for the Massachusetts DG interconnection reports.
+# Sheet and column names are as they appeared in each utility's January 2026 file.
+# Your tool copies this into its state folder on the first run and keeps its own versions there.
+
+source: Massachusetts DG interconnection reports
+landing_url: https://www.mass.gov/info-details/utility-interconnection-in-massachusetts
+file_type: xlsx
+
+utilities:
+  Unitil:
+    sheet: Sheet1
+    id_column: Facility ID (if any)
+    required_columns:
+      - City/Town
+      - Design Capacity (Nameplate) (kW)
+      - Fuel Type (Solar, Wind, etc)
+      - Date Application Received
+
+  Eversource East:
+    sheet: Tracking Sheet
+    id_column: Facility ID (if any)
+    required_columns:
+      - City/Town
+      - Design Capacity (kW)
+      - Fuel Type (PV, Wind, etc)
+      - Date Application Received
