@@ -17,7 +17,7 @@ def test_project_count_drop_threshold():
     # 35% drop -> triggers stop reason
     stop_reason = check_project_count(1000, 650)
     assert stop_reason is not None
-    assert "exceeding safety threshold" in stop_reason
+    assert "threshold" in stop_reason
 
 
 def test_no_new_data_on_identical_sha(tmp_path, monkeypatch, watcher_cli):

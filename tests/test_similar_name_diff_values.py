@@ -66,7 +66,7 @@ def test_similar_name_different_values_flags_needs_review():
 
     # Must be flagged for human review, NEVER auto-fixed
     assert result["status"] == "NEEDS_REVIEW"
-    assert "different values" in result["reason"]
+    assert "different or unverifiable values" in result["reason"]
     assert "Design Capacity (kW)" not in result["column_map"]
 
 
@@ -148,7 +148,7 @@ utilities:
     assert exit_code == 1
     report = json.loads(report_path.read_text(encoding="utf-8"))
     assert report["status"] == "NEEDS_REVIEW"
-    assert "different values" in report["reason"]
+    assert "different or unverifiable values" in report["reason"]
 
     # Baseline remains the old version
     saved_baseline = json.loads((state_dir / "unitil.json").read_text(encoding="utf-8"))
