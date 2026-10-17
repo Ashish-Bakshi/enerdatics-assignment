@@ -39,9 +39,19 @@ def run_replay(utility: str, recipe_path: str = "recipe.yaml", state_dir: str = 
         ]
 
         print(f"\n▶ [{month}] Running command: {' '.join(cmd)}")
+
+        # Prevent a previous run's report from being mistaken for a fresh result.
+        report_file.parent.mkdir(parents=True, exist_ok=True)
+        report_file.unlink(missing_ok=True)
+
         result = subprocess.run(cmd, capture_output=True, text=True)
 
         try:
+            if not report_file.exists():
+                raise FileNotFoundError(
+                    f"Watcher produced no report (exit code {result.returncode})."
+                )
+            
             report = json.loads(report_file.read_text(encoding="utf-8"))
             status = report.get("status")
             reason = report.get("reason")
@@ -62,8 +72,10 @@ def run_replay(utility: str, recipe_path: str = "recipe.yaml", state_dir: str = 
             print(f"   Reason:     {reason}")
             if changes:
                 print(f"   Changes:    {changes}")
-        except Exception:
-            print(f"   Result Output:\n{result.stdout}")
+        except Exception as exc:
+            print(f"   Replay error: {exc}")
+            if result.stdout:
+                print(f"   Result Output:\n{result.stdout}")
             if result.stderr:
                 print(f"   Error:\n{result.stderr}")
 
