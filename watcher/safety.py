@@ -28,9 +28,8 @@ def check_project_count(previous_count: int, current_count: int) -> str | None:
 
     if drop_fraction > PROJECT_COUNT_DROP_THRESHOLD:
         return (
-            f"Project count dropped from {previous_count} to {current_count} "
-            f"({drop_fraction:.1%} drop), exceeding safety threshold of "
-            f"{PROJECT_COUNT_DROP_THRESHOLD:.0%}."
+            f"Project count dropped from {previous_count} to {current_count}, "
+            f"exceeding the {PROJECT_COUNT_DROP_THRESHOLD:.0%} threshold."
         )
 
     return None

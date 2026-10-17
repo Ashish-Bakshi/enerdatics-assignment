@@ -52,7 +52,7 @@ def save_baseline(state_dir: str | Path, utility: str, baseline: dict, status: s
     """Atomically save the baseline only after a safe run (OK or AUTO_FIXED)."""
     if status not in {"OK", "AUTO_FIXED"}:
         raise ValueError(
-            f"Refusing to update baseline for unverified run status: {status!r}"
+            f"Cannot update baseline for unverified run status: {status!r}"
         )
 
     if baseline.get("utility") != utility:

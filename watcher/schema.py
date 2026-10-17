@@ -128,7 +128,7 @@ def changed_value_fraction(
     baseline_records: list[dict],
     current_records: list[dict],
     column: str,
-) -> tuple[float | None, int]:
+) -> float | None:
     """Calculate the fraction of common projects with modified values for an existing column."""
     old_values = {
         r["project_id"]: r.get(column)
@@ -141,10 +141,10 @@ def changed_value_fraction(
 
     common_ids = set(old_values.keys()) & set(new_values.keys())
     if not common_ids:
-        return None, 0
+        return None
 
     changed = sum(1 for pid in common_ids if not values_equal(old_values[pid], new_values[pid]))
-    return changed / len(common_ids), len(common_ids)
+    return changed / len(common_ids)
 
 
 def compare_schema(
@@ -182,7 +182,7 @@ def compare_schema(
             column_map[expected] = expected
 
             # Check if values for this column shifted significantly (> 50%)
-            frac_changed, common_count = changed_value_fraction(
+            frac_changed = changed_value_fraction(
                 baseline_records,
                 current_records,
                 expected,
@@ -200,7 +200,6 @@ def compare_schema(
                         "type": "VALUES_CHANGED",
                         "column": expected,
                         "changed_fraction": frac_changed,
-                        "comparable_projects": common_count,
                     }],
                 }
             continue
@@ -227,8 +226,7 @@ def compare_schema(
                 "status": "NEEDS_REVIEW",
                 "reason": (
                     f"Possible replacement {replacement!r} for {expected!r} "
-                    f"has different values ({1 - match_rate:.1%} mismatch across "
-                    f"{common_count} projects)."
+                    f"has different or unverifiable values."
                 ),
                 "column_map": column_map,
                 "changes": [{

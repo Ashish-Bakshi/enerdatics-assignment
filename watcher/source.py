@@ -69,11 +69,11 @@ def discover_file(html: str, landing_url: str, utility: str, month: str) -> str:
             matches.append(resolved_url)
 
     if not matches:
-        raise LookupError(f"No report link found for {utility!r} in month {month}")
+        raise LookupError(f"No report found for {utility!r} in {month}")
 
     if len(matches) > 1:
         raise LookupError(
-            f"Ambiguous report links ({len(matches)} found) for {utility!r} in month {month}"
+            f"Multiple reports found for {utility!r} in {month}"
         )
 
     return matches[0]
