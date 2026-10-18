@@ -132,7 +132,7 @@ Run the complete suite with:
 
 ```bash
 python -m pytest -v
-
+```
 
 ### Live Download Verification
 
