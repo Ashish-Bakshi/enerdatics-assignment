@@ -112,9 +112,41 @@ A comprehensive test suite covers all requirements and failure modes:
 python -m pytest -v
 ```
 
-### Included Tests:
-1. `tests/test_similar_name_diff_values.py`: Proves that a column with similar name (e.g., `kW` vs `MW`) but different values is **NEVER** applied automatically, returning `NEEDS_REVIEW` and leaving baseline/recipe untouched.
-2. `tests/test_corrupt_file.py`: Proves that malformed XML or corrupt non-workbook files are caught during validation, halting with `STOPPED`.
-3. `tests/test_auto_fixed.py`: Proves that a safe column rename is auto-fixed, updating the recipe and baseline in state.
-4. `tests/test_changed_values.py`: Proves that $>50\%$ value changes on existing columns trigger `NEEDS_REVIEW`.
-5. `tests/test_safety_and_edge_cases.py`: Covers project count drops exceeding 30%, duplicate SHA-256 detection (`NO_NEW_DATA`), and User-Agent rotation upon receiving HTTP 403.
+### Included Tests :
+1. `tests/test_auto_fixed.py`: Tests safe column renames and automatic fixes.
+2. `tests/test_baseline.py`: Tests baseline state handling.
+3. `tests/test_changed_values.py`: Tests detection of significant value changes.
+4. `tests/test_cli.py`: Tests command-line interface behavior.
+5. `tests/test_corrupt_file.py`: Tests handling of malformed XML and invalid workbooks.
+6. `tests/test_recipe.py`: Tests recipe loading and state handling.
+7. `tests/test_replay.py`: Tests replay workflow behavior.
+8. `tests/test_safety.py`: Tests safety-related behavior.
+9. `tests/test_safety_and_edge_cases.py`: Tests project-count drops, duplicate SHA-256 detection, and HTTP 403 User-Agent rotation.
+10. `tests/test_schema.py`: Tests schema comparison and column-rename handling.
+11. `tests/test_similar_name_diff_values.py`: Tests similarly named columns with different values.
+12. `tests/test_source.py`: Tests source link discovery.
+13. `tests/test_source_client.py`: Tests HTTP client behavior, downloads, retries, and caching.
+14. `tests/test_workbook.py`: Tests workbook parsing and validation.
+
+Run the complete suite with:
+
+```bash
+python -m pytest -v
+
+
+### Live Download Verification
+
+A live smoke test against Mass.gov confirmed that the watcher can fetch the
+landing page, discover the Unitil March 2026 report link, download a workbook
+into a fresh temporary cache, and validate the workbook.
+
+- **Download:** Successful; workbook size was 664,439 bytes.
+- **Workbook validation:** Successful; the workbook opened and its worksheet
+  could be read.
+- **Fresh-state processing:** Returned `NEEDS_REVIEW` because the starting
+  recipe expected `Fuel Type (Solar, Wind, etc)`, while the downloaded workbook
+  contained `Fuel Type`. This is the current initial-run behavior when a
+  required column is missing and no baseline exists.
+- **Existing replay report:** `reports/unitil_2026-03.json` records `AUTO_FIXED`
+  for the same workbook hash, with a 100% match rate across 1,328 joined
+  projects. This replay result is separate from the fresh-state smoke test.
