@@ -1,0 +1,18 @@
+{
+  "utility": "Unitil",
+  "month": "2026-02",
+  "status": "OK",
+  "reason": "Required columns and values matched baseline.",
+  "file_url": "https://www.mass.gov/doc/iirg-materials-14/download",
+  "sha256": "32bae22aab06692f07b0029c80583f227f444d97b1ef65cd3b7f6d0a1b6344cd",
+  "sheet": "Sheet1",
+  "header_row": 21,
+  "projects": 1328,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (Nameplate) (kW)": "Design Capacity (Nameplate) (kW)",
+    "Fuel Type (Solar, Wind, etc)": "Fuel Type (Solar, Wind, etc)",
+    "Date Application Received": "Date Application Received"
+  },
+  "changes": []
+}

@@ -1,0 +1,13 @@
+{
+  "utility": "Eversource East",
+  "month": "2026-08",
+  "status": "STOPPED",
+  "reason": "Downloaded file is not a valid workbook: not well-formed (invalid token): line 2, column 23501450",
+  "file_url": "https://www.mass.gov/doc/interconnection-reports-22/download",
+  "sha256": null,
+  "sheet": null,
+  "header_row": null,
+  "projects": 0,
+  "column_map": {},
+  "changes": []
+}

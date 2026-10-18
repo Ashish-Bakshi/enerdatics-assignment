@@ -1,0 +1,24 @@
+{
+  "utility": "Eversource East",
+  "month": "2026-05",
+  "status": "NEEDS_REVIEW",
+  "reason": "Values changed for 58% of comparable projects in column 'Fuel Type (PV, Wind, etc)'.",
+  "file_url": "https://www.mass.gov/doc/interconnection-reports-9/download",
+  "sha256": "29a92016034b8c1bf8a966df3a54a6259f56e52dec57e6bc38b79dcd03f4aebb",
+  "sheet": "Tracking Sheet",
+  "header_row": 1,
+  "projects": 7083,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (kW)": "Design Capacity (kW)",
+    "Fuel Type (PV, Wind, etc)": "Fuel Type (PV, Wind, etc)"
+  },
+  "changes": [
+    {
+      "type": "VALUES_CHANGED",
+      "column": "Fuel Type (PV, Wind, etc)",
+      "changed_fraction": 0.5825070297469291,
+      "comparable_projects": 6757
+    }
+  ]
+}

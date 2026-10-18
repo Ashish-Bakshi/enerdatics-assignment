@@ -1,0 +1,26 @@
+{
+  "utility": "Unitil",
+  "month": "2026-03",
+  "status": "AUTO_FIXED",
+  "reason": "Safely mapped 1 renamed column(s).",
+  "file_url": "https://www.mass.gov/doc/interconnection-reports/download",
+  "sha256": "96d257359b8958d8c312bb019a3db00eb6fed7760d16aa66ef5880abd35d9589",
+  "sheet": "Sheet1",
+  "header_row": 1,
+  "projects": 1351,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (Nameplate) (kW)": "Design Capacity (Nameplate) (kW)",
+    "Fuel Type (Solar, Wind, etc)": "Fuel Type",
+    "Date Application Received": "Date Application Received"
+  },
+  "changes": [
+    {
+      "type": "COLUMN_RENAMED",
+      "from": "Fuel Type (Solar, Wind, etc)",
+      "to": "Fuel Type",
+      "match_rate": 1.0,
+      "joined_projects": 1328
+    }
+  ]
+}

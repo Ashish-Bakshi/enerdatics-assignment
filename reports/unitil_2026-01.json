@@ -1,0 +1,18 @@
+{
+  "utility": "Unitil",
+  "month": "2026-01",
+  "status": "OK",
+  "reason": "Initial workbook parsed successfully.",
+  "file_url": "https://www.mass.gov/doc/interconnection-reporting-44/download",
+  "sha256": "12fd041299763123de97353918041a276289d4f398cb4042990cd7ed3ecb6e36",
+  "sheet": "Sheet1",
+  "header_row": 21,
+  "projects": 1313,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (Nameplate) (kW)": "Design Capacity (Nameplate) (kW)",
+    "Fuel Type (Solar, Wind, etc)": "Fuel Type (Solar, Wind, etc)",
+    "Date Application Received": "Date Application Received"
+  },
+  "changes": []
+}

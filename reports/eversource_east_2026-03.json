@@ -1,0 +1,18 @@
+{
+  "utility": "Eversource East",
+  "month": "2026-03",
+  "status": "OK",
+  "reason": "Required columns and values matched baseline.",
+  "file_url": "https://www.mass.gov/doc/interconnection-reports-0/download",
+  "sha256": "308bf96eee857bf0536df11f3a8dd07307c7c3534c9b4f5c10a7ce00fc8d0a0d",
+  "sheet": "Tracking Sheet",
+  "header_row": 4,
+  "projects": 6989,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (kW)": "Design Capacity (kW)",
+    "Fuel Type (PV, Wind, etc)": "Fuel Type (PV, Wind, etc)",
+    "Date Application Received": "Date Application Received"
+  },
+  "changes": []
+}

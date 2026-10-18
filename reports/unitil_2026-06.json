@@ -1,0 +1,18 @@
+{
+  "utility": "Unitil",
+  "month": "2026-06",
+  "status": "OK",
+  "reason": "Required columns and values matched baseline.",
+  "file_url": "https://www.mass.gov/doc/interconnection-reports-14/download",
+  "sha256": "39e3656cde5d087082cafe974779a2401d77f5a4ed4c4d01051e2723ef25ea81",
+  "sheet": "Sheet1",
+  "header_row": 1,
+  "projects": 1396,
+  "column_map": {
+    "City/Town": "City/Town",
+    "Design Capacity (Nameplate) (kW)": "Design Capacity (Nameplate) (kW)",
+    "Fuel Type": "Fuel Type",
+    "Date Application Received": "Date Application Received"
+  },
+  "changes": []
+}

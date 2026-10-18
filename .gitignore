@@ -13,7 +13,8 @@ __pycache__/
 # Runtime data
 data/cache/
 state/
-reports/
+reports/*
+!reports/*.json
 out.json
 
 # Test and coverage artifacts
