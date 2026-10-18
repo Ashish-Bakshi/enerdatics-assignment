@@ -109,7 +109,7 @@ See [REPLAY.md](REPLAY.md) for the complete run log and [DESIGN.md](DESIGN.md) f
 A comprehensive test suite covers all requirements and failure modes:
 
 ```bash
-pytest -v
+python -m pytest -v
 ```
 
 ### Included Tests:
